@@ -1,0 +1,26 @@
+# /etc/conf.d/cleansolutionsd: config file for /etc/init.d/cleansolutionsd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/cleansolutions/cleansolutions.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/cleansolutionsd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/cleansolutionsd.pid"
+
+# Where to write cleansolutionsd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/cleansolutionsd"
+
+# User and group to own cleansolutionsd process
+#BITCOIND_USER="cleansolutions"
+#BITCOIND_GROUP="cleansolutions"
+
+# Path to cleansolutionsd executable
+#BITCOIND_BIN="/usr/bin/cleansolutionsd"
+
+# Nice value to run cleansolutionsd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

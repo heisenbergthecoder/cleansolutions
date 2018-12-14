@@ -1,0 +1,26 @@
+[Unit]
+Description=CSN's distributed currency daemon
+After=network.target
+
+[Service]
+User=cleansolutions
+Group=cleansolutions
+
+Type=forking
+PIDFile=/var/lib/cleansolutionsd/cleansolutionsd.pid
+
+ExecStart=/usr/bin/cleansolutionsd -daemon -pid=/var/lib/cleansolutionsd/cleansolutionsd.pid \
+          -conf=/etc/cleansolutions/cleansolutions.conf -datadir=/var/lib/cleansolutionsd
+
+ExecStop=-/usr/bin/cleansolutions-cli -conf=/etc/cleansolutions/cleansolutions.conf \
+         -datadir=/var/lib/cleansolutionsd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
